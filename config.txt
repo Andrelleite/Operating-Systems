@@ -1,0 +1,9 @@
+1920,1080
+PA,PB,PC,PD
+20
+10,20,1
+
+2
+Warehouse_1 xy: 960,590 prod: PA,10,PD,23,PC,20
+Warehouse_2 xy: 1200,776 prod: PB,33
+
