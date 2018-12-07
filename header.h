@@ -43,6 +43,44 @@
 
 typedef struct product *lista_prods;
 
+typedef struct product{
+
+	int quantity;
+	char *name;
+
+}Product;
+
+
+typedef struct warehouse{
+
+	pid_t id;
+	int idpr;
+	int n_products;
+	char *name;
+	double coord_x;
+	double coord_y;
+	Product product[128];
+
+}Warehouse;
+
+typedef struct drone{
+
+	Warehouse *warehouse_s;
+	pthread_t id;
+	char *product;
+	int idpr;
+	int order_id; // 0 se nao tem pedidos
+	double coord_x;
+	double coord_y;
+	double destiny_x;
+	double destiny_y;
+	int quantity;
+	int base_no;
+	int state;
+	int loaded;
+
+}Drone;
+
 typedef struct message{
 
 	long mtype;
@@ -50,7 +88,8 @@ typedef struct message{
 	int quantity_prod;
 	int ware_id;
 	int prod_id;
-	char drone_message[1024];
+	Drone *drone;
+	int load_done;
 
 }Message;
 
@@ -66,40 +105,6 @@ typedef struct statistics{
 
 }Statistic;
 
-typedef struct product{
-
-	int quantity;
-	char *name;
-
-}Product;
-
-typedef struct warehouse{
-
-	pid_t id;
-	int n_products;
-	char *name;
-	double coord_x;
-	double coord_y;
-	Product product[128];
-
-}Warehouse;
-
-typedef struct drone{
-
-	pthread_t id;
-	int idpr;
-	int order_id; // 0 se nao tem pedidos
-	Warehouse *warehouse_s;
-	double coord_x;
-	double coord_y;
-	double destiny_x;
-	double destiny_y;
-	int quantity;
-	char *product;
-	int base_no;
-	int state;
-
-}Drone;
 
 int MAX_X; // COMPRIMENTO MAXIMO
 int MAX_Y; // ALTURA MAXIMA
@@ -118,5 +123,7 @@ int shmid_stat;
 int shmid_ware;
 char *pip;
 pid_t central;
+
+
 
 #endif

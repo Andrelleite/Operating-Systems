@@ -29,7 +29,6 @@ char logInfo[256];
 
 pthread_t *drone_idp;
 pthread_mutex_t mutex =  PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t load_sem =  PTHREAD_MUTEX_INITIALIZER;
 
 void terminate(int sign){
 
@@ -37,12 +36,10 @@ void terminate(int sign){
 	shutdown = 1;
 	printf("\nCleaning up memory.\nEnding program.\n");
 
-	/*for(i = 0; i < DRONES; i++){
-		pthread_join(drones[i].id,NULL);
-	}*/
 	for(i = 0; i < WAREHOUSES; i++){
 		wait(&ware_mem[i].id);
 	}
+	wait(&central);
 	printf("\nCleaning memory.\n");
 	free(drone_idp);
 	free(drones);
@@ -217,6 +214,7 @@ void read_config(char *file){
 					word = strtok(NULL,"xy: ,");
 					tokens++;
 				}
+				printf("ADEIOS");
 				i++;
 				tokens = 0;
 			}while(fgets(line,1024,f)!=NULL && i < WAREHOUSES);
@@ -246,17 +244,19 @@ void update_stock(int n){
 
 	Message message;
 	int i;
+	int load_var = 0;
 	int units;
 	int product_id;
-	char drone_message[1024];
+	int loader_id;
+	Drone *dr;
 	while(1){
-
 		msgrcv(msgq_id,&message,sizeof(message),n,0);
-		i = message.ware_id;
-		units = message.quantity_prod;
-		product_id = message.prod_id;
-		strcpy(drone_message,message.drone_message);
+		printf("%d READ BY %d \n",message.type,getpid() );
+
 		if(message.type == 1){
+			i = message.ware_id;
+			units = message.quantity_prod;
+			product_id = message.prod_id;
 			if(ware_mem[i].product[product_id].quantity < MAX_STOCK){
 				if(MAX_STOCK - ware_mem[i].product[product_id].quantity > units){
 					ware_mem[i].product[product_id].quantity += units;
@@ -276,16 +276,15 @@ void update_stock(int n){
 				printf("Stock of product %s in warehouse %s has reached the maximum.\n",ware_mem[i].product[product_id].name, ware_mem[i].name);
 				insert_log(logInfo);
 			}
-		}else{
-			printf("Drone message: %s , read by process %d\n",drone_message,getpid());
+			CHOOSE_WARE++;
 		}
-		CHOOSE_WARE++;
+		else{
+			dr = (Drone *)malloc(sizeof(Drone));
+			dr = message.drone;
+			printf("AHHHHHHHHHH %d\n", dr->idpr);
+		}
 	}
-
-
 	//printf("\n\n----------------------------\n");
-
-
 }
 
 void init_pipe(){
@@ -359,10 +358,11 @@ void create_warehouses(){
 
 		if(fork() == 0){
 			ware_mem[n].id = getpid();
+			ware_mem[n].idpr = n+1;
 			sprintf(logInfo, "Criação Processo Armazem %d com o PID %d", n, ware_mem[n].id);
 			printf("Criação Processo Armazem %d com o PID %d\n", n, ware_mem[n].id);
 			insert_log(logInfo);
-			update_stock(n+1);
+			update_stock(n+1);;
 		}
 	}
 
@@ -401,65 +401,51 @@ void drone_travel(Drone *drone, double x, double y){
 void *do_some_work(void *id){
 
 	int idt = *((int *)id);
-	int i = 0;
 	Message message;
-	message.mtype = 1;
-	message.type = 2;
-	int status = 0;
 	Drone *drone = (Drone *)malloc(sizeof(Drone));
+	drone = &drones[idt-1];
 	printf("DRONE %d WAITING\n",idt );
-	if(idt == 0){
-		pthread_mutex_lock(&mutex);
-	}
 
 	while(shutdown != 1){
 
-		while(status == 0){
-			for(i = 0; i < DRONES; i++){
-				if(drones[i].idpr == idt){
-					status = drones[i].state;
-					drone = &drones[i];
-					pthread_mutex_unlock(&mutex);
-				}
+
+		if(drone->state != 0){
+			pthread_mutex_unlock(&mutex);
+			pthread_mutex_lock(&mutex);
+
+			/* send to warehouse*/
+
+			drone_travel(drone,drone->warehouse_s->coord_x,drone->warehouse_s->coord_y);
+
+			/* load products , send message to warehouse*/
+			message.type = 2;
+			message.mtype = drone->warehouse_s->idpr;
+			printf("LOADING DRONE %d\n",drone->idpr);
+			printf("DRONE %d REQUEST %d\n",drone->idpr, drone->quantity);
+			message.drone = (Drone *)malloc(sizeof(Drone));
+			message.drone = drone;
+			if(msgsnd(msgq_id,&message,sizeof(message),0) < 0){
+				perror("Error sending message.\n");
+				exit(-1);
 			}
-			sleep(1);
-		}
-		pthread_mutex_lock(&mutex);
+			while(drone->loaded == 0);
 
-		/* send to warehouse*/
+			/* send to delivery checkpoint */
+			printf("to destiny \n");
+			drone_travel(drone,drone->destiny_x,drone->destiny_y);
 
-		drone_travel(drone,drone->warehouse_s->coord_x,drone->warehouse_s->coord_y);
-		sprintf(message.drone_message,"Drone %d arrived",idt);
-		if(msgsnd(msgq_id,&message,sizeof(message),0) < 0){
-			perror("Error sending message.\n");
-			exit(-1);
-		}
+			/* send back to base*/
+			printf("Back to base %d\n",drone->base_no );
+			drone_travel(drone,bases[drone->base_no][0],bases[drone->base_no][1]);
 
-		/* load products , send message to warehouse*/
 
-		sleep(5);
-		sprintf(message.drone_message,"Drone %d request load",idt);
-		if(msgsnd(msgq_id,&message,sizeof(message),0) < 0){
-			perror("Error sending message.\n");
-			exit(-1);
+			drone->state = 0;
 		}
 
-		/* send to delivery checkpoint */
-		printf("to destiny \n");
-		drone_travel(drone,drone->destiny_x,drone->destiny_y);
-
-		/* send back to base*/
-		printf("Back to base %d\n",drone->base_no );
-		drone_travel(drone,bases[drone->base_no][0],bases[drone->base_no][1]);
-
-
-		drone->state = 0;
-		status = 0;
-		sleep(20);
 	}
 
 	pthread_exit(0);
-
+	exit(0);
 }
 
 void create_drones(){
@@ -469,14 +455,16 @@ void create_drones(){
 	int err;
 	time_t t;
 	srand((unsigned)time(&t));
+	pthread_mutex_lock(&mutex);
 
 	while(i != DRONES){
 		sleep(1);
-		drones[i].idpr = i*10;
+		drones[i].idpr = i+1;
 		drones[i].coord_x = bases[j][0];
 		drones[i].coord_y = bases[j][1];
 		drones[i].state = 0; /*0  -> free*/
 		drones[i].base_no = j;
+		drones[i].loaded = 0;
 		if((err = pthread_create(&drones[i].id, NULL, &do_some_work,&drones[i].idpr)) == 0){
 			// print to log success creation
 			sprintf(logInfo, "Drone %d criado", drones[i].idpr);
@@ -498,12 +486,12 @@ void create_drones(){
 void wait_for_signal(){
 	//printf("\n------- STOCK UPDATE -------\n");
 	Message message;
-	message.mtype = 1;
 	message.type = 1;
 
 	while(1){
 		sleep(FILL_FREQ);
 		message.ware_id = CHOOSE_WARE % WAREHOUSES;
+		message.mtype = (CHOOSE_WARE % WAREHOUSES) +1;
 		message.quantity_prod = QUANTITY;
 		message.prod_id = rand() % ware_mem[message.ware_id].n_products;
 		if(msgsnd(msgq_id,&message,sizeof(message),0) < 0){
@@ -613,6 +601,7 @@ void select_poles(){
 		send_drone->destiny_x = list_orders->next->order->x;
 		send_drone->destiny_y = list_orders->next->order->y;
 		send_drone->state = 1;
+		send_drone->quantity = list_orders->next->order->quantity;
 		pop_node(list_orders->next,list_orders);
 		printf("DEALER | Drone: %d to: %s , state %d order %d\n",send_drone->idpr, send_drone->warehouse_s->name, send_drone->state, send_drone->order_id);
 	}else{
