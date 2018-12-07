@@ -3234,3 +3234,452 @@ Drone -1346461640 localizado na posição (0.00 , 0.00) 17:45:3 ------------
 Drone -1346461640 a iniciar movimento até ao armazém 17:45:3 ------------
 
 17:45:3 Drone -1346461640 a iniciar movimento até ao armazém
+18:47:27 Programa Iniciado
+
+
+------------ INICIO LOG 18:47:27 ------------
+
+18:47:27 Criação Processo Armazem 1 com o PID 2167
+18:47:27 Criação Processo Armazem 0 com o PID 2166
+18:47:30 Drone 1 criado
+18:47:31 Drone 2 criado
+18:47:32 Drone 3 criado
+18:47:33 Drone 4 criado
+18:47:34 Drone 5 criado
+18:47:35 Drone 6 criado
+18:47:36 Drone 7 criado
+18:47:37 Stock do produto PD atualizado em 20 unidades, no Armazem 2166
+18:47:37 Drone 8 criado
+18:47:38 Drone 9 criado
+18:47:39 Drone 10 criado
+18:47:40 Drone 11 criado
+18:47:41 Drone 12 criado
+18:47:42 Drone 13 criado
+18:47:43 Drone 14 criado
+18:47:44 Drone 15 criado
+18:47:45 Drone 16 criado
+18:47:46 Drone 17 criado
+18:47:47 Stock do produto PB atualizado em 20 unidades, no Armazem 2167
+18:47:47 Drone 18 criado
+18:47:48 Drone 19 criado
+18:47:49 Drone 20 criado
+18:47:51 Drone 2 a iniciar movimento até ao armazém
+18:47:51 Drone 2 movimentado com sucesso até ao armazém
+18:47:51 Drone 2 localizado na posição (960.00 , 590.00)
+18:47:57 Stock do produto PA atualizado em 20 unidades, no Armazem 2166
+18:48:7 Stock do produto PB atualizado em 20 unidades, no Armazem 2167
+18:51:0 Programa Iniciado
+
+
+------------ INICIO LOG 18:51:0 ------------
+
+18:51:0 Criação Processo Armazem 1 com o PID 2224
+18:51:0 Criação Processo Armazem 0 com o PID 2223
+18:51:3 Drone 1 criado
+18:51:4 Drone 2 criado
+18:51:5 Drone 3 criado
+18:51:6 Drone 4 criado
+18:51:7 Drone 5 criado
+18:51:8 Drone 6 criado
+18:51:9 Drone 7 criado
+18:51:10 Stock do produto PD atualizado em 20 unidades, no Armazem 2223
+18:51:10 Drone 8 criado
+18:51:11 Drone 9 criado
+18:51:12 Drone 10 criado
+18:51:13 Drone 11 criado
+18:51:14 Drone 12 criado
+18:51:15 Drone 13 criado
+18:51:16 Drone 14 criado
+18:51:17 Drone 15 criado
+18:51:18 Drone 16 criado
+18:51:19 Drone 17 criado
+18:51:20 Stock do produto PB atualizado em 20 unidades, no Armazem 2224
+18:51:20 Drone 18 criado
+18:51:21 Drone 19 criado
+18:51:22 Drone 20 criado
+18:51:30 Stock do produto PA atualizado em 20 unidades, no Armazem 2223
+18:51:40 Stock do produto PB atualizado em 20 unidades, no Armazem 2224
+18:51:44 Drone 2 a iniciar movimento até ao armazém
+18:51:44 Drone 2 movimentado com sucesso até ao armazém
+18:51:44 Drone 2 localizado na posição (960.00 , 590.00)
+18:51:50 Stock do produto PC atualizado em 20 unidades, no Armazem 2223
+18:52:0 Stock do produto PB atualizado em 20 unidades, no Armazem 2224
+18:52:10 Stock do produto PD atualizado em 20 unidades, no Armazem 2223
+18:52:20 Stock do produto PB atualizado em 7 unidades, no Armazem 2224
+18:52:30 Stock do produto PA atualizado em 20 unidades, no Armazem 2223
+18:52:40 Stock do produto PB atingiu o limite no Armazem 2224
+18:52:50 Stock do produto PC atualizado em 20 unidades, no Armazem 2223
+18:53:0 Stock do produto PB atingiu o limite no Armazem 2224
+18:53:0 Drone 324091960 a iniciar movimento até ao armazém
+18:53:0 Drone 324091960 movimentado com sucesso até ao armazém
+18:53:0 Drone 324091960 localizado na posição (0.00 , 0.00)
+18:53:0 Drone 324091960 a iniciar movimento até ao armazém
+18:53:0 Drone 324091960 movimentado com sucesso até ao armazém
+18:53:0 Drone 324091960 localizado na posição (0.00 , 0.00)
+18:53:0 Drone 324092096 a iniciar movimento até ao armazém
+18:53:0 Drone 324092096 movimentado com sucesso até ao armazém
+18:55:12 Programa Iniciado
+
+
+------------ INICIO LOG 18:55:12 ------------
+
+18:55:12 Criação Processo Armazem 1 com o PID 2323
+18:55:12 Criação Processo Armazem 0 com o PID 2322
+18:55:15 Drone 1 criado
+18:55:16 Drone 2 criado
+18:55:17 Drone 3 criado
+18:55:18 Drone 4 criado
+18:55:19 Drone 5 criado
+18:55:20 Drone 6 criado
+18:55:21 Drone 7 criado
+18:55:22 Stock do produto PD atualizado em 20 unidades, no Armazem 2322
+18:55:22 Drone 8 criado
+18:55:23 Drone 9 criado
+18:55:24 Drone 10 criado
+18:55:25 Drone 11 criado
+18:55:26 Drone 12 criado
+18:55:27 Drone 13 criado
+18:55:28 Drone 14 criado
+18:55:29 Drone 15 criado
+18:55:30 Drone 16 criado
+18:55:31 Drone 17 criado
+18:55:32 Stock do produto PB atualizado em 20 unidades, no Armazem 2323
+18:55:32 Drone 18 criado
+18:55:33 Drone 19 criado
+18:55:34 Drone 20 criado
+18:55:42 Stock do produto PA atualizado em 20 unidades, no Armazem 2322
+18:55:52 Stock do produto PB atualizado em 20 unidades, no Armazem 2323
+18:55:56 Drone 2 a iniciar movimento até ao armazém
+18:55:56 Drone 2 movimentado com sucesso até ao armazém
+18:55:56 Drone 2 localizado na posição (960.00 , 590.00)
+18:56:2 Stock do produto PC atualizado em 20 unidades, no Armazem 2322
+18:56:12 Stock do produto PB atualizado em 20 unidades, no Armazem 2323
+18:56:22 Stock do produto PD atualizado em 20 unidades, no Armazem 2322
+18:58:22 Programa Iniciado
+
+
+------------ INICIO LOG 18:58:22 ------------
+
+18:58:22 Criação Processo Armazem 1 com o PID 2376
+18:58:22 Criação Processo Armazem 0 com o PID 2375
+18:58:25 Drone 1 criado
+18:58:26 Drone 2 criado
+18:58:27 Drone 3 criado
+18:58:28 Drone 4 criado
+18:58:29 Drone 5 criado
+18:58:30 Drone 6 criado
+18:58:31 Drone 7 criado
+18:58:32 Stock do produto PD atualizado em 20 unidades, no Armazem 2375
+18:58:32 Drone 8 criado
+18:58:33 Drone 9 criado
+18:58:34 Drone 10 criado
+18:58:35 Drone 11 criado
+18:58:36 Drone 12 criado
+18:58:37 Drone 13 criado
+18:58:38 Drone 14 criado
+18:58:39 Drone 15 criado
+18:58:40 Drone 16 criado
+18:58:41 Drone 17 criado
+18:58:42 Stock do produto PB atualizado em 20 unidades, no Armazem 2376
+18:58:42 Drone 18 criado
+18:58:43 Drone 19 criado
+18:58:44 Drone 20 criado
+18:58:52 Stock do produto PA atualizado em 20 unidades, no Armazem 2375
+18:59:2 Stock do produto PB atualizado em 20 unidades, no Armazem 2376
+18:59:6 Drone 2 a iniciar movimento até ao armazém
+18:59:6 Drone 2 movimentado com sucesso até ao armazém
+18:59:6 Drone 2 localizado na posição (960.00 , 590.00)
+18:59:12 Stock do produto PC atualizado em 20 unidades, no Armazem 2375
+18:59:22 Stock do produto PB atualizado em 20 unidades, no Armazem 2376
+18:59:32 Stock do produto PD atualizado em 20 unidades, no Armazem 2375
+18:59:42 Stock do produto PB atualizado em 7 unidades, no Armazem 2376
+18:59:52 Stock do produto PA atualizado em 20 unidades, no Armazem 2375
+19:0:2 Stock do produto PB atingiu o limite no Armazem 2376
+19:0:12 Stock do produto PC atualizado em 20 unidades, no Armazem 2375
+19:0:22 Stock do produto PB atingiu o limite no Armazem 2376
+Drone -1419231176 a iniciar movimento até ao armazém 19:0:26 ------------
+
+Drone -1419231176 movimentado com sucesso até ao armazém 19:0:26 ------------
+
+Drone -1419231176 localizado na posição (0.00 , 0.00) 19:0:26 ------------
+
+19:0:26 Drone -1419231176 a iniciar movimento até ao armazém
+Drone -1419231176 a iniciar movimento até ao armazém 19:0:26 ------------
+
+19:0:26 Drone -1419231176 movimentado com sucesso até ao armazém
+Drone -1419231176 movimentado com sucesso até ao armazém 19:0:26 ------------
+
+19:0:26 Drone -1419231176 localizado na posição (0.00 , 0.00)
+19:53:7 Programa Iniciado
+
+
+------------ INICIO LOG 19:53:7 ------------
+
+19:53:7 Criação Processo Armazem 1 com o PID 2594
+19:53:7 Criação Processo Armazem 0 com o PID 2593
+19:53:10 Drone 1 criado
+19:53:11 Drone 2 criado
+19:53:12 Drone 3 criado
+19:53:13 Drone 4 criado
+19:53:14 Drone 5 criado
+19:53:15 Drone 6 criado
+19:53:16 Drone 7 criado
+19:53:17 Stock do produto PD atualizado em 20 unidades, no Armazem 2593
+19:53:17 Drone 8 criado
+19:53:18 Drone 9 criado
+19:53:19 Drone 10 criado
+19:53:20 Drone 11 criado
+19:53:21 Drone 12 criado
+19:53:22 Drone 13 criado
+19:53:23 Drone 14 criado
+19:53:24 Drone 15 criado
+19:53:25 Drone 16 criado
+19:53:26 Drone 17 criado
+19:53:27 Stock do produto PB atualizado em 20 unidades, no Armazem 2594
+19:53:27 Drone 18 criado
+19:53:28 Drone 19 criado
+19:53:29 Drone 20 criado
+19:53:37 Stock do produto PA atualizado em 20 unidades, no Armazem 2593
+19:53:47 Stock do produto PB atualizado em 20 unidades, no Armazem 2594
+19:53:51 Drone 2 a iniciar movimento até ao armazém
+19:53:51 Drone 2 movimentado com sucesso até ao armazém
+19:53:51 Drone 2 localizado na posição (960.00 , 590.00)
+19:53:57 Stock do produto PC atualizado em 20 unidades, no Armazem 2593
+19:54:7 Stock do produto PB atualizado em 20 unidades, no Armazem 2594
+19:54:17 Stock do produto PD atualizado em 20 unidades, no Armazem 2593
+19:54:27 Stock do produto PB atualizado em 7 unidades, no Armazem 2594
+19:54:37 Stock do produto PA atualizado em 20 unidades, no Armazem 2593
+19:54:47 Stock do produto PB atingiu o limite no Armazem 2594
+19:54:57 Stock do produto PC atualizado em 20 unidades, no Armazem 2593
+19:57:36 Programa Iniciado
+
+
+------------ INICIO LOG 19:57:36 ------------
+
+19:57:36 Criação Processo Armazem 1 com o PID 2637
+19:57:36 Criação Processo Armazem 0 com o PID 2636
+19:57:39 Drone 1 criado
+19:57:40 Drone 2 criado
+19:57:41 Drone 3 criado
+19:57:42 Drone 4 criado
+19:57:43 Drone 5 criado
+19:57:44 Drone 6 criado
+19:57:45 Drone 7 criado
+19:57:46 Stock do produto PD atualizado em 20 unidades, no Armazem 2636
+19:57:46 Drone 8 criado
+19:57:47 Drone 9 criado
+19:57:48 Drone 10 criado
+19:57:49 Drone 11 criado
+19:57:50 Drone 12 criado
+19:57:51 Drone 13 criado
+19:57:52 Drone 14 criado
+19:57:53 Drone 15 criado
+19:57:54 Drone 16 criado
+19:57:55 Drone 17 criado
+19:57:56 Stock do produto PB atualizado em 20 unidades, no Armazem 2637
+19:57:56 Drone 18 criado
+19:57:57 Drone 19 criado
+19:57:58 Drone 20 criado
+19:58:0 Drone 2 a iniciar movimento até ao armazém
+19:58:0 Drone 2 movimentado com sucesso até ao armazém
+19:58:0 Drone 2 localizado na posição (960.00 , 590.00)
+19:58:6 Stock do produto PA atualizado em 20 unidades, no Armazem 2636
+19:58:16 Stock do produto PB atualizado em 20 unidades, no Armazem 2637
+19:58:26 Stock do produto PC atualizado em 20 unidades, no Armazem 2636
+19:58:36 Stock do produto PB atualizado em 20 unidades, no Armazem 2637
+19:58:46 Stock do produto PD atualizado em 20 unidades, no Armazem 2636
+19:58:56 Stock do produto PB atualizado em 7 unidades, no Armazem 2637
+19:59:6 Stock do produto PA atualizado em 20 unidades, no Armazem 2636
+19:59:16 Stock do produto PB atingiu o limite no Armazem 2637
+19:59:26 Stock do produto PC atualizado em 20 unidades, no Armazem 2636
+19:59:36 Stock do produto PB atingiu o limite no Armazem 2637
+19:59:46 Stock do produto PC atualizado em 20 unidades, no Armazem 2636
+19:59:56 Stock do produto PB atingiu o limite no Armazem 2637
+20:0:6 Stock do produto PC atualizado em 20 unidades, no Armazem 2636
+20:0:41 Programa Iniciado
+
+
+------------ INICIO LOG 20:0:41 ------------
+
+20:0:41 Criação Processo Armazem 1 com o PID 2685
+20:0:41 Criação Processo Armazem 0 com o PID 2684
+20:0:44 Drone 1 criado
+20:0:45 Drone 2 criado
+20:0:46 Drone 3 criado
+20:0:47 Drone 4 criado
+20:0:48 Drone 5 criado
+20:0:49 Drone 6 criado
+20:0:50 Drone 7 criado
+20:0:51 Stock do produto PD atualizado em 20 unidades, no Armazem 2684
+20:0:51 Drone 8 criado
+20:0:52 Drone 9 criado
+20:0:53 Drone 10 criado
+20:0:54 Drone 11 criado
+20:0:55 Drone 12 criado
+20:0:56 Drone 13 criado
+20:0:57 Drone 14 criado
+20:0:58 Drone 15 criado
+20:0:59 Drone 16 criado
+20:1:0 Drone 17 criado
+20:1:1 Stock do produto PB atualizado em 20 unidades, no Armazem 2685
+20:1:1 Drone 18 criado
+20:1:2 Drone 19 criado
+20:1:3 Drone 20 criado
+20:1:11 Stock do produto PA atualizado em 20 unidades, no Armazem 2684
+20:2:13 Programa Iniciado
+
+
+------------ INICIO LOG 20:2:13 ------------
+
+20:2:13 Criação Processo Armazem 1 com o PID 2728
+20:2:13 Criação Processo Armazem 0 com o PID 2727
+20:2:16 Drone 1 criado
+20:2:17 Drone 2 criado
+20:2:18 Drone 3 criado
+20:2:19 Drone 4 criado
+20:2:20 Drone 5 criado
+20:2:21 Drone 6 criado
+20:2:22 Drone 7 criado
+20:2:23 Stock do produto PD atualizado em 20 unidades, no Armazem 2727
+20:2:23 Drone 8 criado
+20:2:24 Drone 9 criado
+20:2:25 Drone 10 criado
+20:2:26 Drone 11 criado
+20:2:27 Drone 12 criado
+20:2:28 Drone 13 criado
+20:2:29 Drone 14 criado
+20:2:30 Drone 15 criado
+20:2:31 Drone 16 criado
+20:2:32 Drone 17 criado
+20:2:33 Stock do produto PB atualizado em 20 unidades, no Armazem 2728
+20:2:33 Drone 18 criado
+20:2:34 Drone 19 criado
+20:2:35 Drone 20 criado
+20:2:37 Drone 2 a iniciar movimento até ao armazém
+20:2:37 Drone 2 movimentado com sucesso até ao armazém
+20:2:37 Drone 2 localizado na posição (960.00 , 590.00)
+20:2:39 Drone 2 a iniciar movimento até ao armazém
+20:2:39 Drone 2 movimentado com sucesso até ao armazém
+20:2:39 Drone 2 localizado na posição (123.00 , 312.00)
+20:2:39 Drone 2 a iniciar movimento até ao armazém
+20:2:39 Drone 2 movimentado com sucesso até ao armazém
+20:2:39 Drone 2 localizado na posição (0.00 , 1080.00)
+20:2:43 Stock do produto PA atualizado em 20 unidades, no Armazem 2727
+20:2:53 Stock do produto PB atualizado em 20 unidades, no Armazem 2728
+20:5:32 Programa Iniciado
+
+
+------------ INICIO LOG 20:5:32 ------------
+
+20:5:32 Criação Processo Armazem 1 com o PID 2786
+20:5:32 Criação Processo Armazem 0 com o PID 2785
+20:5:35 Drone 1 criado
+20:5:36 Drone 2 criado
+20:5:37 Drone 3 criado
+20:5:38 Drone 4 criado
+20:5:39 Drone 5 criado
+20:5:40 Drone 6 criado
+20:5:41 Drone 7 criado
+20:5:42 Stock do produto PD atualizado em 20 unidades, no Armazem 2785
+20:5:42 Drone 8 criado
+20:5:43 Drone 9 criado
+20:5:44 Drone 10 criado
+20:5:45 Drone 11 criado
+20:5:46 Drone 12 criado
+20:5:47 Drone 13 criado
+20:5:48 Drone 14 criado
+20:5:49 Drone 15 criado
+20:5:50 Drone 16 criado
+20:5:51 Drone 17 criado
+20:5:52 Stock do produto PB atualizado em 20 unidades, no Armazem 2786
+20:5:52 Drone 18 criado
+20:5:53 Drone 19 criado
+20:5:54 Drone 20 criado
+20:6:2 Stock do produto PA atualizado em 20 unidades, no Armazem 2785
+20:6:12 Stock do produto PB atualizado em 20 unidades, no Armazem 2786
+20:6:16 Drone 2 a iniciar movimento até ao armazém
+20:6:16 Drone 2 movimentado com sucesso até ao armazém
+20:6:16 Drone 2 localizado na posição (960.00 , 590.00)
+20:6:32 Stock do produto PB atualizado em 20 unidades, no Armazem 2786
+20:6:37 Drone 2 a iniciar movimento até ao armazém
+20:6:37 Stock do produto PC atualizado em 20 unidades, no Armazem 2785
+20:6:37 Drone 2 movimentado com sucesso até ao armazém
+20:6:37 Drone 2 localizado na posição (231.00 , 312.00)
+20:6:37 Drone 2 a iniciar movimento até ao armazém
+20:6:37 Drone 2 movimentado com sucesso até ao armazém
+20:6:37 Drone 2 localizado na posição (0.00 , 1080.00)
+20:6:42 Stock do produto PD atualizado em 20 unidades, no Armazem 2785
+20:6:52 Stock do produto PB atualizado em 7 unidades, no Armazem 2786
+20:6:56 Drone 2 a iniciar movimento até ao armazém
+20:6:56 Drone 2 movimentado com sucesso até ao armazém
+20:6:56 Drone 2 localizado na posição (960.00 , 590.00)
+20:7:12 Stock do produto PB atingiu o limite no Armazem 2786
+20:7:20 Drone 2 a iniciar movimento até ao armazém
+20:7:20 Stock do produto PA atualizado em 20 unidades, no Armazem 2785
+20:7:20 Drone 2 movimentado com sucesso até ao armazém
+20:7:20 Drone 2 localizado na posição (123.00 , 444.00)
+20:7:20 Drone 2 a iniciar movimento até ao armazém
+20:7:20 Drone 2 movimentado com sucesso até ao armazém
+20:7:20 Drone 2 localizado na posição (0.00 , 1080.00)
+20:7:22 Stock do produto PC atualizado em 20 unidades, no Armazem 2785
+20:7:32 Stock do produto PB atingiu o limite no Armazem 2786
+20:7:42 Stock do produto PC atualizado em 20 unidades, no Armazem 2785
+20:7:52 Stock do produto PB atingiu o limite no Armazem 2786
+20:8:2 Stock do produto PC atualizado em 20 unidades, no Armazem 2785
+20:8:12 Stock do produto PB atingiu o limite no Armazem 2786
+20:8:22 Stock do produto PA atualizado em 20 unidades, no Armazem 2785
+20:8:32 Stock do produto PB atingiu o limite no Armazem 2786
+20:8:42 Stock do produto PD atualizado em 20 unidades, no Armazem 2785
+20:8:52 Stock do produto PB atingiu o limite no Armazem 2786
+20:9:2 Stock do produto PC atualizado em 20 unidades, no Armazem 2785
+20:9:12 Stock do produto PB atingiu o limite no Armazem 2786
+20:9:22 Stock do produto PA atualizado em 20 unidades, no Armazem 2785
+20:9:32 Stock do produto PB atingiu o limite no Armazem 2786
+20:9:36 Drone 2 a iniciar movimento até ao armazém
+20:9:36 Drone 2 movimentado com sucesso até ao armazém
+20:9:36 Drone 2 localizado na posição (960.00 , 590.00)
+20:9:52 Stock do produto PB atingiu o limite no Armazem 2786
+20:9:56 Drone 3 a iniciar movimento até ao armazém
+20:9:56 Drone 3 movimentado com sucesso até ao armazém
+20:9:56 Drone 3 localizado na posição (1200.00 , 776.00)
+20:9:56 Drone 2 a iniciar movimento até ao armazém
+20:9:56 Stock do produto PC atualizado em 20 unidades, no Armazem 2785
+20:9:56 Drone 2 movimentado com sucesso até ao armazém
+20:9:56 Drone 2 localizado na posição (233.00 , 312.00)
+20:9:56 Drone 2 a iniciar movimento até ao armazém
+20:9:56 Drone 2 movimentado com sucesso até ao armazém
+20:9:56 Drone 2 localizado na posição (0.00 , 1080.00)
+20:10:2 Stock do produto PC atualizado em 4 unidades, no Armazem 2785
+20:10:16 Drone 2 a iniciar movimento até ao armazém
+20:10:16 Drone 2 movimentado com sucesso até ao armazém
+20:10:16 Drone 2 localizado na posição (960.00 , 590.00)
+20:10:49 Drone 2 a iniciar movimento até ao armazém
+20:10:49 Stock do produto PD atualizado em 17 unidades, no Armazem 2785
+20:10:49 Stock do produto PC atingiu o limite no Armazem 2785
+20:10:49 Drone 2 movimentado com sucesso até ao armazém
+20:10:49 Drone 2 localizado na posição (112.00 , 312.00)
+20:10:49 Drone 2 a iniciar movimento até ao armazém
+20:10:49 Drone 2 movimentado com sucesso até ao armazém
+20:10:49 Drone 2 localizado na posição (0.00 , 1080.00)
+20:10:56 Drone 7 a iniciar movimento até ao armazém
+20:10:56 Drone 7 movimentado com sucesso até ao armazém
+20:10:56 Drone 7 localizado na posição (1200.00 , 776.00)
+20:11:2 Stock do produto PA atualizado em 20 unidades, no Armazem 2785
+20:11:22 Stock do produto PC atingiu o limite no Armazem 2785
+20:11:30 Drone 3 a iniciar movimento até ao armazém
+20:11:30 Stock do produto PB atualizado em 20 unidades, no Armazem 2786
+20:11:30 Stock do produto PB atualizado em 20 unidades, no Armazem 2786
+20:11:30 Stock do produto PB atualizado em 20 unidades, no Armazem 2786
+20:11:30 Drone 3 movimentado com sucesso até ao armazém
+20:11:30 Drone 3 localizado na posição (233.00 , 421.00)
+20:11:30 Drone 3 a iniciar movimento até ao armazém
+20:11:30 Drone 3 movimentado com sucesso até ao armazém
+20:11:30 Drone 3 localizado na posição (1920.00 , 1080.00)
+20:11:32 Drone 7 a iniciar movimento até ao armazém
+20:11:32 Stock do produto PB atualizado em 20 unidades, no Armazem 2786
+20:11:32 Stock do produto PB atualizado em 16 unidades, no Armazem 2786
+20:11:32 Drone 7 movimentado com sucesso até ao armazém
+20:11:32 Drone 7 localizado na posição (233.00 , 1080.00)
+20:11:32 Drone 7 a iniciar movimento até ao armazém
+20:11:32 Drone 7 movimentado com sucesso até ao armazém
+20:11:32 Drone 7 localizado na posição (1920.00 , 1080.00)

@@ -244,15 +244,13 @@ void update_stock(int n){
 
 	Message message;
 	int i;
-	int load_var = 0;
+	int load_var;
 	int units;
 	int product_id;
-	int loader_id;
-	Drone *dr;
+
 	while(1){
 		msgrcv(msgq_id,&message,sizeof(message),n,0);
-		printf("%d READ BY %d \n",message.type,getpid() );
-
+		load_var = 0;
 		if(message.type == 1){
 			i = message.ware_id;
 			units = message.quantity_prod;
@@ -279,9 +277,16 @@ void update_stock(int n){
 			CHOOSE_WARE++;
 		}
 		else{
-			dr = (Drone *)malloc(sizeof(Drone));
-			dr = message.drone;
-			printf("AHHHHHHHHHH %d\n", dr->idpr);
+			printf("PROCESSING ORDER %d FOR DRONE %d\n",message.order_id - WAREHOUSES, message.drone_id );
+			while(load_var < message.quantity_prod){
+				load_var++;
+				sleep(1);
+			}
+			message.mtype = message.order_id;
+			if(msgsnd(msgq_id,&message,sizeof(message),0) < 0){
+				perror("Error sending message.\n");
+				exit(-1);
+			}
 		}
 	}
 	//printf("\n\n----------------------------\n");
@@ -420,16 +425,17 @@ void *do_some_work(void *id){
 			/* load products , send message to warehouse*/
 			message.type = 2;
 			message.mtype = drone->warehouse_s->idpr;
+			message.drone_id = idt;
+			message.order_id = WAREHOUSES + drone->order_id;
+			message.quantity_prod = drone->quantity;
 			printf("LOADING DRONE %d\n",drone->idpr);
 			printf("DRONE %d REQUEST %d\n",drone->idpr, drone->quantity);
-			message.drone = (Drone *)malloc(sizeof(Drone));
-			message.drone = drone;
 			if(msgsnd(msgq_id,&message,sizeof(message),0) < 0){
 				perror("Error sending message.\n");
 				exit(-1);
 			}
-			while(drone->loaded == 0);
-
+			msgrcv(msgq_id,&message,sizeof(message),message.order_id,0);
+			printf("WAREHOUSE FINISHED LOADING PRODUCTS\n");
 			/* send to delivery checkpoint */
 			printf("to destiny \n");
 			drone_travel(drone,drone->destiny_x,drone->destiny_y);
@@ -438,7 +444,7 @@ void *do_some_work(void *id){
 			printf("Back to base %d\n",drone->base_no );
 			drone_travel(drone,bases[drone->base_no][0],bases[drone->base_no][1]);
 
-
+			drone->order_id = 0;
 			drone->state = 0;
 		}
 

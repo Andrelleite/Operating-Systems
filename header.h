@@ -88,8 +88,9 @@ typedef struct message{
 	int quantity_prod;
 	int ware_id;
 	int prod_id;
-	Drone *drone;
-	int load_done;
+	int drone_id;
+	int order_id;
+	char *prod;
 
 }Message;
 
