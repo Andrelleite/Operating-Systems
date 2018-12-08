@@ -35,7 +35,9 @@ void terminate(int sign){
 	int i = 0;
 	shutdown = 1;
 	printf("\nCleaning up memory.\nEnding program.\n");
-
+	/*for(i = 0; i < DRONES; i++){
+		pthread_join(drone_idp[i],NULL);
+	}*/
 	for(i = 0; i < WAREHOUSES; i++){
 		wait(&ware_mem[i].id);
 	}
@@ -373,34 +375,63 @@ void create_warehouses(){
 
 }
 
-void drone_travel(Drone *drone, double x, double y){
+void drone_travel(Drone *drone, double x, double y, int flag){
 
 	int result = -1;
+	int current_state = drone->state;
 	// move drones to warehouse
-	sprintf(logInfo, "Drone %d a iniciar movimento até ao armazém", drone->idpr);
+	sprintf(logInfo, "Drone %d a iniciar movimento até ao destino", drone->idpr);
 	insert_log(logInfo);
 	printf("\n[%d]DRONE(%.2f,%.2f)",drone->idpr,drone->coord_x,drone->coord_y);
 	printf(" to (%.2f,%.2f)\n",x,y);
-	while(result != 0){
+	while(result != 0  && (drone->state == current_state)){
+		if(flag){
+			usleep(100000);
+
+		}
 		result = move_towards(&(drone->coord_x),&(drone->coord_y),x,y);
 		if(result == 0){
 			printf("Drone %d moved correctly toward warehouse.\n",drone->idpr);
-			sprintf(logInfo, "Drone %d movimentado com sucesso até ao armazém", drone->idpr);
+			sprintf(logInfo, "Drone %d movimentado com sucesso até ao destino", drone->idpr);
 			insert_log(logInfo);
 			mem->travels_made += 1;
 			printf("Drone final position (%.2f , %.2f)\n\n",drone->coord_x,drone->coord_y);
 		}else if(result == -1){
 			printf("Drone %d was already in site.\n",drone->idpr);
-			sprintf(logInfo, "Drone %d já localizado no armazém", drone->idpr);
+			sprintf(logInfo, "Drone %d já localizado no destino", drone->idpr);
 			insert_log(logInfo);
 		}else if(result == -2){
 			printf("Trajectory turned an error.\n");
 			sprintf(logInfo, "Drone %d não movimentado até ao armazém, erro na trajetória", drone->idpr);
 			insert_log(logInfo);
+		}else if(drone->state != current_state ){
+			printf("Trajectory to base was interrupted! Got new task\n");
+			sprintf(logInfo, "Drone %d trajectory to base was interrupted! Got new task", drone->idpr);
+			insert_log(logInfo);
 		}
 	}
 	sprintf(logInfo, "Drone %d localizado na posição (%.2f , %.2f)", drone->idpr, drone->coord_x,drone->coord_y);
 	insert_log(logInfo);
+}
+
+void closest_base(Drone *drone){
+
+	int i;
+	double min_distance;
+	double dist;
+	for(i = 0; i < 4; i++){
+		if( i == 0 ){
+			drone->base_no = i;
+			min_distance = distance(drone->coord_x,drone->coord_y,bases[drone->base_no][0],bases[drone->base_no][1]);
+		}else{
+			dist = distance(drone->coord_x,drone->coord_y,bases[i][0],bases[i][1]);
+			if(dist < min_distance){
+				drone->base_no = i;
+			}
+		}
+	}
+
+
 }
 
 void *do_some_work(void *id){
@@ -419,8 +450,9 @@ void *do_some_work(void *id){
 			pthread_mutex_lock(&mutex);
 
 			/* send to warehouse*/
-
-			drone_travel(drone,drone->warehouse_s->coord_x,drone->warehouse_s->coord_y);
+			sprintf(logInfo, "Drone %d moving to %s", drone->idpr, drone->warehouse_s->name);
+			insert_log(logInfo);
+			drone_travel(drone,drone->warehouse_s->coord_x,drone->warehouse_s->coord_y,0);
 
 			/* load products , send message to warehouse*/
 			message.type = 2;
@@ -436,16 +468,21 @@ void *do_some_work(void *id){
 			}
 			msgrcv(msgq_id,&message,sizeof(message),message.order_id,0);
 			printf("WAREHOUSE FINISHED LOADING PRODUCTS\n");
+
 			/* send to delivery checkpoint */
 			printf("to destiny \n");
-			drone_travel(drone,drone->destiny_x,drone->destiny_y);
+			drone_travel(drone,drone->destiny_x,drone->destiny_y,0);
+			sprintf(logInfo, "Drone %d reached destination", drone->idpr);
+			insert_log(logInfo);
+			drone->state = 0;
+			drone->order_id = 0;
 
 			/* send back to base*/
+			sprintf(logInfo, "Drone %d moving to closest base", drone->idpr);
+			insert_log(logInfo);
 			printf("Back to base %d\n",drone->base_no );
-			drone_travel(drone,bases[drone->base_no][0],bases[drone->base_no][1]);
-
-			drone->order_id = 0;
-			drone->state = 0;
+			closest_base(drone);
+			drone_travel(drone,bases[drone->base_no][0],bases[drone->base_no][1],1);
 		}
 
 	}
@@ -506,6 +543,42 @@ void wait_for_signal(){
 		}
 		CHOOSE_WARE++;
 	}
+}
+
+void add_drones(int update){
+
+	int i = DRONES;
+	int j = 0;
+	int err = 0;
+	DRONES += update;
+	drones = (Drone *) realloc(drones,update*sizeof(Drone));
+	if(drones  == NULL){
+			perror("Memory was not reallocated correctly");
+			exit(-1);
+	}
+	printf("UPDATE NUMBER OF DRONES FROM %d TO %d\n",i,DRONES);
+	while(i < DRONES){
+		sleep(1);
+		drones[i].idpr = i+1;
+		drones[i].coord_x = bases[j][0];
+		drones[i].coord_y = bases[j][1];
+		drones[i].state = 0;
+		drones[i].base_no = j;
+		drones[i].loaded = 0;
+		if((err = pthread_create(&drones[i].id, NULL, &do_some_work,&drones[i].idpr)) == 0){
+			// print to log success creation
+			sprintf(logInfo, "Drone %d criado", drones[i].idpr);
+			insert_log(logInfo);
+			// will make it move towards the warehouse
+		}else{
+			printf("thread failed to create.\n");
+			exit(-1);
+		}
+		j = (j+1)%4;
+		i++;
+	}
+
+
 }
 
 int check_if_int(char dig[]){
@@ -610,7 +683,11 @@ void select_poles(){
 		send_drone->quantity = list_orders->next->order->quantity;
 		pop_node(list_orders->next,list_orders);
 		printf("DEALER | Drone: %d to: %s , state %d order %d\n",send_drone->idpr, send_drone->warehouse_s->name, send_drone->state, send_drone->order_id);
+		sprintf(logInfo, "Order Req-%d dispatched by Drone %d to (%.2f,%.2f) loading at %s",send_drone->order_id,send_drone->idpr,send_drone->destiny_x,send_drone->destiny_y,send_drone->warehouse_s->name);
+		insert_log(logInfo);
 	}else{
+		sprintf(logInfo, "Order Req-%d delayed by Central",list_orders->next->order->id);
+		insert_log(logInfo);
 		delay_order(list_orders->next->order->id, list_orders);
 	}
 
@@ -624,37 +701,52 @@ void approve_order(char order[]){
 	int p_exists = 0;
 	int i = 0;
 	int lenght;
+	int d_update;
 	char key_words[20][256];
-	printf("[CENTRAL] Received new order (%s)\n",order);
 
-	if(order != NULL && strlen(order) > 13){
+	if(order != NULL && strstr(order, "prod:") != NULL){
+		printf("[CENTRAL] Received new order (%s)\n",order);
 		word = strtok(order," ,");
 		while(word != NULL){
 			strcpy(key_words[i],word);
 			if(check_if_int(word)){
 				check++;
 			}
-			if(i == 3){
+			if(i == 1){
 				p_exists = check_prod_exists(word);
 			}
 			word = strtok(NULL," ,");
 			i++;
 		}
 		lenght = i;
-		if(lenght == 8 && p_exists && check == 4){
+		if(lenght == 6 && p_exists && check == 3){
+			sprintf(logInfo, "Order Req-%d received by Central",order_id);
+			insert_log(logInfo);
 			new_order->id = order_id++;
-			new_order->prod_name = (char *)malloc(strlen(key_words[3])*sizeof(char));
-			strcpy(new_order->prod_name,key_words[3]);
-			new_order->quantity = atoi(key_words[4]);
-			new_order->x = atoi(key_words[6]);
-			new_order->y = atoi(key_words[7]);
+			new_order->prod_name = (char *)malloc(strlen(key_words[1])*sizeof(char));
+			strcpy(new_order->prod_name,key_words[1]);
+			new_order->quantity = atoi(key_words[2]);
+			new_order->x = atoi(key_words[4]);
+			new_order->y = atoi(key_words[5]);
 			printf("REQUEST ACCEPTED.\n");
 			insert_q(new_order,list_orders);
 			print_q(list_orders);
 		}else{
 			printf("REQUEST WAS REJECTED\n");
 		}
+	}else if(strcmp(strtok(order," "),"Drones") == 0){
+		printf("[CENTRAL] Drones update \n");
+		word = strtok(NULL," ");
+		if(check_if_int(word)){
+			d_update = atoi(word);
+			printf("Updating %d drones\n",d_update);
+			/*add_drones(d_update);*/
+		}else{
+			printf("REQUEST WAS REJECTED\n");
+		}
+
 	}
+
 	if(list_orders->next != NULL){
 		select_poles();
 	}
@@ -664,11 +756,14 @@ void approve_order(char order[]){
 void read_request(){
 
 	char order[1024];
+	char send_order[1024];
 	printf("Listenning to pipe\n");
 	while (1) {
-    read(fifo_id, &order, 1204*sizeof(char));
-		approve_order(order);
-		sleep(20);
+    read(fifo_id, &order, 1024*sizeof(char));
+		strcpy(send_order,order);
+		approve_order(send_order);
+		strcpy(order,"nothing\0");
+		sleep(5);
   }
 
 }

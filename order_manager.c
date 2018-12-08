@@ -5,7 +5,6 @@
 int main()
 {
 
-  char sender[1024];
   char order[1024];
   char *pos;
   // Opens the pipe for writing
@@ -13,6 +12,7 @@ int main()
 
   printf("___ORDER MANAGER___\n\n");
   printf("[Order]: prod: product_name, quantity to: x, y\n");
+  printf("[Add Drone]: Drones y\n\n");
 
   if((fifo_id = open(FIFO, O_WRONLY)) < 0){
     perror("Error opening pipe for reading");
@@ -20,17 +20,14 @@ int main()
   }
   // Do some work
   while (1) {
-    printf("[Order]: ");
-    fgets(sender,1024,stdin);
-    sprintf(order,"ORDER %d ",order_id);
-    if ((pos=strchr(sender, '\n')) != NULL){
+    printf("[COMANDO]: ");
+    fgets(order,1024,stdin);
+    if ((pos=strchr(order, '\n')) != NULL){
       *pos = '\0';
     }
-    strcat(order,sender);
     write(fifo_id, order, 1024*sizeof(char));
-    memset(&sender[0], 0, sizeof(sender));
-    memset(&order[0], 0, sizeof(order));
-    sleep(10);
+    memset(order,0,1024);
+    sleep(5);
   }
 
 }
