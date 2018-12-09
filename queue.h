@@ -15,9 +15,8 @@
 
 typedef struct queue *q_node;
 
-
-typedef struct order{
-
+typedef struct order
+{
 	int id;
 	char *prod_name;
 	int quantity;
@@ -26,8 +25,8 @@ typedef struct order{
 
 }Order;
 
-typedef struct queue{
-
+typedef struct queue
+{
     int n;
     int taken;
     Order *order;
@@ -46,7 +45,5 @@ void pop_node(q_node node, q_node lista);
 q_node search_order(int id, q_node lista);
 
 void delay_order(int id, q_node lista);
-
-
 
 #endif

@@ -32,27 +32,24 @@
 #include <fcntl.h>
 #include "semlib.h"
 
-
 #define key1 1243
 #define key2 2341
 #define message_key 2000
 #define FIFO "NAMED_PIPE"
 #define MAX_STOCK 100
 
-
-
 typedef struct product *lista_prods;
 
-typedef struct product{
-
+typedef struct product
+{
 	int quantity;
 	char *name;
 
 }Product;
 
 
-typedef struct warehouse{
-
+typedef struct warehouse
+{
 	pid_t id;
 	int idpr;
 	int n_products;
@@ -63,8 +60,8 @@ typedef struct warehouse{
 
 }Warehouse;
 
-typedef struct drone{
-
+typedef struct drone
+{
 	Warehouse *warehouse_s;
 	pthread_t id;
 	char *product;
@@ -81,8 +78,8 @@ typedef struct drone{
 
 }Drone;
 
-typedef struct message{
-
+typedef struct message
+{
 	long mtype;
 	int type;
 	int quantity_prod;
@@ -94,8 +91,8 @@ typedef struct message{
 
 }Message;
 
-typedef struct statistics{
-
+typedef struct statistics
+{
 	int travels_made;
 	int total_encomendas;
 	int shipped_prods;
@@ -105,7 +102,6 @@ typedef struct statistics{
 	int restocks;
 
 }Statistic;
-
 
 int MAX_X; // COMPRIMENTO MAXIMO
 int MAX_Y; // ALTURA MAXIMA
@@ -125,6 +121,7 @@ int shmid_ware;
 char *pip;
 pid_t central;
 
-
+void insert_log(char *text);
+void terminate(int sign);
 
 #endif

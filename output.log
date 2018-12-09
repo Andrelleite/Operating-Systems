@@ -1,164 +1,326 @@
-16:51:27 Programa Iniciado
 
 
------------- INICIO LOG 16:51:27 ------------
+------------ LOG STARTED AT 0:5:7 ------------
 
-16:51:27 Criação Processo Armazem 1 com o PID 5755
-16:51:27 Criação Processo Armazem 0 com o PID 5754
-16:51:30 Drone 1 criado
-16:51:31 Drone 2 criado
-16:51:32 Drone 3 criado
-16:51:33 Drone 4 criado
-16:51:34 Drone 5 criado
-16:51:35 Drone 6 criado
-16:51:36 Drone 7 criado
-16:51:37 Stock do produto PD atualizado em 20 unidades, no Armazem 5754
-16:51:37 Drone 8 criado
-16:51:38 Drone 9 criado
-16:51:39 Drone 10 criado
-16:51:40 Drone 11 criado
-16:51:41 Drone 12 criado
-16:51:42 Drone 13 criado
-16:51:43 Drone 14 criado
-16:51:44 Drone 15 criado
-16:51:45 Drone 16 criado
-16:51:46 Drone 17 criado
-16:51:47 Stock do produto PB atualizado em 20 unidades, no Armazem 5755
-16:51:47 Drone 18 criado
-16:51:48 Drone 19 criado
-16:51:49 Drone 20 criado
-Order Req-1 received by Central 16:51:51 ------------
+0:5:7 Process Warehouse 1 with PID 3236 created
+0:5:7 Process Warehouse 0 with PID 3235 created
+0:5:10 Drone 1 created
+0:5:11 Drone 2 created
+0:5:12 Drone 3 created
+0:5:13 Drone 4 created
+0:5:14 Drone 5 created
+0:5:15 Drone 6 created
+0:5:16 Drone 7 created
+0:5:17 Product PD stock updated in 20 units, in Warehouse 3235
+0:5:17 Drone 8 created
+0:5:18 Drone 9 created
+0:5:19 Drone 10 created
+0:5:20 Drone 11 created
+0:5:21 Drone 12 created
+0:5:22 Drone 13 created
+0:5:23 Drone 14 created
+0:5:24 Drone 15 created
+0:5:25 Drone 16 created
+0:5:26 Drone 17 created
+0:5:27 Product PB stock updated in 20 units, in Warehouse 3236
+0:5:27 Drone 18 created
+0:5:28 Drone 19 created
+0:5:29 Drone 20 created
+0:5:31 Order containing 23 units of PA with ID 1 received
+0:5:31 Order with ID 1 delayed by Central for lack of stock
+0:5:33 Order with ID 1 delayed by Central for lack of stock
+0:5:35 Order with ID 1 delayed by Central for lack of stock
+0:5:37 Product PA stock updated in 20 units, in Warehouse 3235
+0:5:37 Order with ID 1 dispatched by Drone 2 to (322.00,1080.00) loading at Warehouse_1
+0:5:37 Drone 2 moving to Warehouse_1
+0:5:37 Drone 2 a initiating movement towards destination
+0:5:37 Drone 2 moved sucessfully to destination
+0:5:37 Drone 2 located at (960.00 , 590.00)
+0:5:39 Order containing 33 units of PC with ID 2 received
+0:5:39 Order with ID 2 delayed by Central for lack of stock
+0:5:41 Order with ID 2 delayed by Central for lack of stock
+0:5:43 Order with ID 2 delayed by Central for lack of stock
+0:5:45 Order with ID 2 delayed by Central for lack of stock
+0:5:47 Product PB stock updated in 20 units, in Warehouse 3236
+0:5:47 Order with ID 2 delayed by Central for lack of stock
+0:5:49 Order with ID 2 delayed by Central for lack of stock
+0:5:51 Order with ID 2 delayed by Central for lack of stock
+0:5:53 Order with ID 2 delayed by Central for lack of stock
+0:5:55 Order containing 23 units of PD with ID 3 received
+0:5:55 Order with ID 2 delayed by Central for lack of stock
+0:5:57 Order with ID 3 dispatched by Drone 3 to (1923.00,323.00) loading at Warehouse_1
+0:5:57 Drone 3 moving to Warehouse_1
+0:5:57 Drone 3 a initiating movement towards destination
+0:5:57 Drone 3 moved sucessfully to destination
+0:5:57 Drone 3 located at (960.00 , 590.00)
+0:5:59 Order with ID 2 delayed by Central for lack of stock
+0:6:0 Product PC stock updated in 20 units, in Warehouse 3235
+0:6:0 Drone 2 a initiating movement towards destination
+0:6:0 Drone 2 moved sucessfully to destination
+0:6:0 Drone 2 located at (322.00 , 1080.00)
+0:6:0 Drone 2 reached destination and delivered order 1
+0:6:0 Drone 2 a initiating movement towards destination
+0:6:1 Order with ID 2 dispatched by Drone 2 to (323.00,444.00) loading at Warehouse_1
+0:6:1 Drone 2 trajectory to base was interrupted! Got new task
+0:6:1 Drone 2 located at (313.00 , 1080.00)
+0:6:1 Drone 2 moving to closest base
+0:6:1 Drone 2 moving to Warehouse_1
+0:6:1 Drone 2 a initiating movement towards destination
+0:6:1 Drone 2 moved sucessfully to destination
+0:6:1 Drone 2 located at (960.00 , 590.00)
+0:6:7 Product PB stock updated in 20 units, in Warehouse 3236
+0:6:9 Order containing 32 units of PC with ID 4 received
+0:6:9 Order with ID 4 delayed by Central for lack of stock
+0:6:11 Order with ID 4 delayed by Central for lack of stock
+0:6:13 Order with ID 4 delayed by Central for lack of stock
+0:6:15 Order with ID 4 delayed by Central for lack of stock
+0:6:17 Order with ID 4 delayed by Central for lack of stock
+0:6:19 Order with ID 4 delayed by Central for lack of stock
+0:6:21 Order containing 2 units of PA with ID 5 received
+0:6:21 Order with ID 4 delayed by Central for lack of stock
+0:6:23 Drone 6 moving to Warehouse_1
+0:6:23 Drone 6 moving to Warehouse_1
+0:6:23 Drone 6 a initiating movement towards destination
+0:6:23 Drone 6 moved sucessfully to destination
+0:6:23 Drone 6 located at (960.00 , 590.00)
+0:6:23 Drone 3 a initiating movement towards destination
+0:6:23 Drone 3 moved sucessfully to destination
+0:6:23 Drone 3 located at (1923.00 , 323.00)
+0:6:23 Drone 3 reached destination and delivered order 3
+0:6:23 Drone 3 a initiating movement towards destination
+0:6:25 Order with ID 4 delayed by Central for lack of stock
+0:6:27 Product PB stock updated in 7 units, in Warehouse 3236
+0:6:27 Order with ID 4 delayed by Central for lack of stock
+0:6:29 Order with ID 4 delayed by Central for lack of stock
+0:6:31 Order with ID 4 delayed by Central for lack of stock
+0:6:33 Order with ID 4 delayed by Central for lack of stock
+0:6:35 Order with ID 4 delayed by Central for lack of stock
+0:6:37 Order with ID 4 delayed by Central for lack of stock
+0:6:39 Order with ID 4 delayed by Central for lack of stock
+0:6:41 Order with ID 4 delayed by Central for lack of stock
+0:6:43 Order with ID 4 delayed by Central for lack of stock
+0:6:45 Order with ID 4 delayed by Central for lack of stock
+0:6:47 Product PB stock reached maximum limit in Warehouse 3236
+0:6:47 Order with ID 4 delayed by Central for lack of stock
+0:6:49 Order with ID 4 delayed by Central for lack of stock
+0:6:51 Order with ID 4 delayed by Central for lack of stock
+0:6:53 Order with ID 4 delayed by Central for lack of stock
+0:6:55 Order with ID 4 delayed by Central for lack of stock
+0:6:56 Drone 3 moved sucessfully to destination
+0:6:56 Drone 3 located at (1920.00 , 0.00)
+0:6:56 Drone 3 moving to closest base
+0:6:56 Product PD stock updated in 20 units, in Warehouse 3235
+0:6:56 Drone 2 a initiating movement towards destination
+0:6:56 Drone 2 moved sucessfully to destination
+0:6:56 Drone 2 located at (323.00 , 444.00)
+0:6:56 Drone 2 reached destination and delivered order 2
+0:6:56 Drone 2 a initiating movement towards destination
+0:6:57 Order with ID 4 delayed by Central for lack of stock
+0:6:58 Product PA stock updated in 20 units, in Warehouse 3235
+0:6:58 Drone 6 a initiating movement towards destination
+0:6:58 Product PC stock updated in 20 units, in Warehouse 3235
+0:6:58 Drone 6 moved sucessfully to destination
+0:6:58 Drone 6 located at (312.00 , 33.00)
+0:6:58 Drone 6 reached destination and delivered order 5
+0:6:58 Drone 6 a initiating movement towards destination
+0:6:59 Order with ID 4 delayed by Central for lack of stock
+0:7:1 Order with ID 4 delayed by Central for lack of stock
+0:7:3 Order with ID 4 delayed by Central for lack of stock
+0:7:5 Order with ID 4 delayed by Central for lack of stock
+0:7:7 Product PB stock reached maximum limit in Warehouse 3236
+0:7:7 Order with ID 4 delayed by Central for lack of stock
+0:7:9 Warehouse process 0 with PID 3235 terminated
+0:7:9 Warehouse process 0 with PID 3235 terminated
+0:7:9 Warehouse process 0 with PID 3235 terminated
+0:7:9 Warehouse process 1 with PID 3236 terminated
+0:7:9 Warehouse process 1 with PID 3236 terminated
+0:7:9 Warehouse process 1 with PID 3236 terminated
+0:7:9 Warehouse process 0 with PID 0 terminated
+0:7:9 Warehouse process 1 with PID 0 terminated
 
-Order Req-1 delayed by Central 16:51:51 ------------
 
-Order Req-1 delayed by Central 16:51:56 ------------
+------------ LOG STARTED AT 0:55:3 ------------
 
-16:51:57 Stock do produto PA atualizado em 20 unidades, no Armazem 5754
-Order Req-1 dispatched by Drone 2 to (223.00,320.00) loading at Warehouse_1 16:52:1 ------------
+0:55:3 Process Warehouse 1 with PID 3558 created
+0:55:3 Process Warehouse 0 with PID 3557 created
+0:55:6 Drone 1 created
+0:55:7 Drone 2 created
+0:55:8 Drone 3 created
+0:55:9 Drone 4 created
+0:55:10 Drone 5 created
+0:55:11 Drone 6 created
+0:55:12 Drone 7 created
+0:55:13 Product PD stock updated in 20 units, in Warehouse 3557
+0:55:13 Drone 8 created
+0:55:14 Drone 9 created
+0:55:15 Drone 10 created
+0:55:16 Drone 11 created
+0:55:17 Drone 12 created
+0:55:18 Drone 13 created
+0:55:19 Drone 14 created
+0:55:20 Drone 15 created
+0:55:21 Drone 16 created
+0:55:22 Drone 17 created
+0:55:23 Product PB stock updated in 20 units, in Warehouse 3558
+0:55:23 Drone 18 created
+0:55:24 Drone 19 created
+0:55:25 Drone 20 created
+0:55:33 Product PA stock updated in 20 units, in Warehouse 3557
+0:55:41 Warehouse process 0 with PID 3557 terminated
+0:55:41 Warehouse process 0 with PID 3557 terminated
+0:55:41 Warehouse process 0 with PID 3557 terminated
+0:55:41 Warehouse process 1 with PID 3558 terminated
+0:55:41 Warehouse process 1 with PID 3558 terminated
+0:55:41 Warehouse process 1 with PID 3558 terminated
+0:55:41 Warehouse process 0 with PID 0 terminated
+0:55:41 Warehouse process 1 with PID 0 terminated
 
-16:52:1 Drone 2 moving to Warehouse_1
-16:52:1 Drone 2 a iniciar movimento até ao destino
-16:52:1 Drone 2 movimentado com sucesso até ao destino
-16:52:1 Drone 2 localizado na posição (960.00 , 590.00)
-Order Req-2 received by Central 16:52:6 ------------
 
-Order Req-2 delayed by Central 16:52:6 ------------
+------------ LOG STARTED AT 0:56:15 ------------
 
-16:52:7 Stock do produto PB atualizado em 20 unidades, no Armazem 5755
-Order Req-2 delayed by Central 16:52:11 ------------
+0:56:15 Process Warehouse 1 with PID 3595 created
+0:56:15 Process Warehouse 0 with PID 3594 created
+0:56:18 Drone 1 created
+0:56:19 Drone 2 created
+0:56:20 Drone 3 created
+0:56:21 Drone 4 created
+0:56:22 Drone 5 created
+0:56:23 Drone 6 created
+0:56:24 Drone 7 created
+0:56:25 Product PD stock updated in 20 units, in Warehouse 3594
+0:56:25 Drone 8 created
+0:56:26 Drone 9 created
+0:56:27 Drone 10 created
+0:56:28 Drone 11 created
+0:56:29 Drone 12 created
+0:56:30 Drone 13 created
+0:56:31 Drone 14 created
+0:56:32 Drone 15 created
+0:56:33 Drone 16 created
+0:56:34 Drone 17 created
+0:56:35 Product PB stock updated in 20 units, in Warehouse 3595
+0:56:35 Drone 18 created
+0:56:36 Drone 19 created
+0:56:37 Drone 20 created
+0:56:45 Product PA stock updated in 20 units, in Warehouse 3594
+0:56:55 Product PB stock updated in 20 units, in Warehouse 3595
+0:57:5 Product PC stock updated in 20 units, in Warehouse 3594
+0:57:13 Warehouse process 0 with PID 3594 terminated
+0:57:13 Warehouse process 0 with PID 3594 terminated
+0:57:13 Warehouse process 0 with PID 3594 terminated
+0:57:13 Warehouse process 1 with PID 3595 terminated
+0:57:13 Warehouse process 1 with PID 3595 terminated
+0:57:13 Warehouse process 1 with PID 3595 terminated
+0:57:13 Warehouse process 0 with PID 0 terminated
+0:57:13 Warehouse process 1 with PID 0 terminated
 
-Order Req-2 delayed by Central 16:52:16 ------------
 
-Order Req-2 delayed by Central 16:52:21 ------------
+------------ LOG STARTED AT 1:16:10 ------------
 
-16:52:21 Drone 2 a iniciar movimento até ao destino
-16:52:21 Stock do produto PC atualizado em 20 unidades, no Armazem 5754
-16:52:21 Drone 2 movimentado com sucesso até ao destino
-16:52:21 Drone 2 localizado na posição (223.00 , 320.00)
-16:52:21 Drone 2 reached destination
-16:52:21 Drone 2 moving to closest base
-16:52:21 Drone 2 a iniciar movimento até ao destino
-Order Req-3 received by Central 16:52:26 ------------
-
-Order Req-2 dispatched by Drone 2 to (1222.00,232.00) loading at Warehouse_1 16:52:26 ------------
-
-16:52:26 Drone 2 trajectory to base was interrupted! Got new task
-16:52:26 Drone 2 localizado na posição (195.56 , 280.62)
-16:52:26 Drone 2 moving to Warehouse_1
-16:52:26 Drone 2 a iniciar movimento até ao destino
-16:52:26 Drone 2 movimentado com sucesso até ao destino
-16:52:26 Drone 2 localizado na posição (960.00 , 590.00)
-16:52:27 Stock do produto PB atualizado em 20 unidades, no Armazem 5755
-Order Req-3 dispatched by Drone 3 to (33.00,312.00) loading at Warehouse_1 16:52:31 ------------
-
-16:52:31 Drone 3 moving to Warehouse_1
-16:52:31 Drone 3 a iniciar movimento até ao destino
-16:52:31 Drone 3 movimentado com sucesso até ao destino
-16:52:31 Drone 3 localizado na posição (960.00 , 590.00)
-Order Req-4 received by Central 16:52:46 ------------
-
-Order Req-4 dispatched by Drone 6 to (265.00,653.00) loading at Warehouse_1 16:52:46 ------------
-
-16:52:46 Drone 6 moving to Warehouse_1
-16:52:46 Drone 6 a iniciar movimento até ao destino
-16:52:46 Drone 6 movimentado com sucesso até ao destino
-16:52:46 Drone 6 localizado na posição (960.00 , 590.00)
-16:52:47 Stock do produto PB atualizado em 7 unidades, no Armazem 5755
-16:52:48 Drone 2 a iniciar movimento até ao destino
-16:52:48 Drone 2 movimentado com sucesso até ao destino
-16:52:48 Drone 2 localizado na posição (1222.00 , 232.00)
-16:52:48 Drone 2 reached destination
-16:52:48 Drone 2 moving to closest base
-16:52:48 Drone 2 a iniciar movimento até ao destino
-16:52:52 Drone 3 a iniciar movimento até ao destino
-16:52:52 Stock do produto PD atualizado em 20 unidades, no Armazem 5754
-16:52:52 Drone 3 movimentado com sucesso até ao destino
-16:52:52 Drone 3 localizado na posição (33.00 , 312.00)
-16:52:52 Drone 3 reached destination
-16:52:52 Drone 3 moving to closest base
-16:52:52 Drone 3 a iniciar movimento até ao destino
-16:53:1 Drone 6 a iniciar movimento até ao destino
-16:53:1 Stock do produto PA atualizado em 20 unidades, no Armazem 5754
-16:53:1 Drone 6 movimentado com sucesso até ao destino
-16:53:1 Drone 6 localizado na posição (265.00 , 653.00)
-16:53:1 Drone 6 reached destination
-16:53:1 Drone 6 moving to closest base
-16:53:1 Drone 6 a iniciar movimento até ao destino
-Order Req-5 received by Central 16:53:6 ------------
-
-Order Req-5 delayed by Central 16:53:6 ------------
-
-16:53:7 Stock do produto PB atingiu o limite no Armazem 5755
-Order Req-5 delayed by Central 16:53:11 ------------
-
-Order Req-5 delayed by Central 16:53:16 ------------
-
-16:53:17 Stock do produto PC atualizado em 20 unidades, no Armazem 5754
-Order Req-6 received by Central 16:53:21 ------------
-
-Order Req-5 delayed by Central 16:53:21 ------------
-
-16:53:23 Drone 3 movimentado com sucesso até ao destino
-16:53:23 Drone 3 localizado na posição (0.00 , 0.00)
-Order Req-6 dispatched by Drone 2 to (323.00,412.00) loading at Warehouse_1 16:53:26 ------------
-
-16:53:26 Drone 2 trajectory to base was interrupted! Got new task
-16:53:26 Drone 2 localizado na posição (1579.76 , 113.09)
-16:53:26 Drone 2 moving to Warehouse_1
-16:53:26 Drone 2 a iniciar movimento até ao destino
-16:53:26 Drone 2 movimentado com sucesso até ao destino
-16:53:26 Drone 2 localizado na posição (960.00 , 590.00)
-16:53:27 Stock do produto PB atingiu o limite no Armazem 5755
-16:53:29 Drone 2 a iniciar movimento até ao destino
-16:53:29 Drone 2 movimentado com sucesso até ao destino
-16:53:29 Drone 2 localizado na posição (323.00 , 412.00)
-16:53:29 Drone 2 reached destination
-16:53:29 Drone 2 moving to closest base
-16:53:29 Drone 2 a iniciar movimento até ao destino
-Order Req-5 delayed by Central 16:53:31 ------------
-
-Order Req-5 delayed by Central 16:53:36 ------------
-
-16:53:37 Stock do produto PC atualizado em 20 unidades, no Armazem 5754
-Order Req-5 delayed by Central 16:53:41 ------------
-
-Order Req-5 delayed by Central 16:53:46 ------------
-
-16:53:47 Stock do produto PB atingiu o limite no Armazem 5755
-Order Req-5 delayed by Central 16:53:51 ------------
-
-16:53:51 Drone 6 movimentado com sucesso até ao destino
-16:53:51 Drone 6 localizado na posição (0.00 , 1080.00)
-Order Req-5 delayed by Central 16:53:56 ------------
-
-16:53:57 Stock do produto PC atualizado em 20 unidades, no Armazem 5754
-Order Req-5 delayed by Central 16:54:1 ------------
-
-Order Req-5 delayed by Central 16:54:6 ------------
-
-16:54:7 Stock do produto PB atingiu o limite no Armazem 5755
-Order Req-5 delayed by Central 16:54:11 ------------
-
-Order Req-5 delayed by Central 16:54:16 ------------
-
-16:54:17 Stock do produto PA atualizado em 20 unidades, no Armazem 5754
+1:16:10 Process Warehouse 1 with PID 3705 created
+1:16:10 Process Warehouse 0 with PID 3704 created
+1:16:13 Drone 1 created
+1:16:14 Drone 2 created
+1:16:15 Drone 3 created
+1:16:16 Drone 4 created
+1:16:17 Drone 5 created
+1:16:18 Drone 6 created
+1:16:19 Drone 7 created
+1:16:20 Product PD stock updated in 20 units, in Warehouse 3704
+1:16:20 Drone 8 created
+1:16:21 Drone 9 created
+1:16:22 Drone 10 created
+1:16:23 Drone 11 created
+1:16:24 Drone 12 created
+1:16:25 Drone 13 created
+1:16:26 Drone 14 created
+1:16:27 Drone 15 created
+1:16:28 Drone 16 created
+1:16:29 Drone 17 created
+1:16:30 Product PB stock updated in 20 units, in Warehouse 3705
+1:16:30 Drone 18 created
+1:16:31 Drone 19 created
+1:16:32 Drone 20 created
+1:16:40 Product PA stock updated in 20 units, in Warehouse 3704
+1:16:50 Product PB stock updated in 20 units, in Warehouse 3705
+1:17:0 Product PC stock updated in 20 units, in Warehouse 3704
+1:17:10 Product PB stock updated in 20 units, in Warehouse 3705
+1:17:10 Order containing 21 units of PA with ID 1 received
+1:17:10 Order with ID 1 dispatched by Drone 2 to (232.00,321.00) loading at Warehouse_1
+1:17:10 Drone 2 moving to Warehouse_1
+1:17:10 Drone 2 a initiating movement towards destination
+1:17:10 Drone 2 moved sucessfully to destination
+1:17:10 Drone 2 located at (960.00 , 590.00)
+1:17:30 Product PB stock updated in 7 units, in Warehouse 3705
+1:17:31 Product PD stock updated in 20 units, in Warehouse 3704
+1:17:31 Drone 2 a initiating movement towards destination
+1:17:31 Drone 2 moved sucessfully to destination
+1:17:31 Drone 2 located at (232.00 , 321.00)
+1:17:31 Drone 2 reached destination and delivered order 1
+1:17:31 Drone 2 a initiating movement towards destination
+1:17:40 Product PA stock updated in 20 units, in Warehouse 3704
+1:17:50 Product PB stock reached maximum limit in Warehouse 3705
+1:18:0 Product PC stock updated in 20 units, in Warehouse 3704
+1:18:10 Product PB stock reached maximum limit in Warehouse 3705
+1:18:11 Drone 2 moved sucessfully to destination
+1:18:11 Drone 2 located at (0.00 , 0.00)
+1:18:11 Drone 2 moving to closest base
+1:18:20 Product PC stock updated in 20 units, in Warehouse 3704
+1:18:30 Product PB stock reached maximum limit in Warehouse 3705
+1:18:40 Product PC stock updated in 20 units, in Warehouse 3704
+1:18:50 Product PB stock reached maximum limit in Warehouse 3705
+1:18:58 Order containing 22 units of PC with ID 2 received
+1:18:58 Order with ID 2 dispatched by Drone 3 to (213.00,1080.00) loading at Warehouse_1
+1:18:58 Drone 3 moving to Warehouse_1
+1:18:58 Drone 3 a initiating movement towards destination
+1:18:58 Drone 3 moved sucessfully to destination
+1:18:58 Drone 3 located at (960.00 , 590.00)
+1:19:8 Order containing 2 units of PA with ID 3 received
+1:19:8 Order with ID 3 dispatched by Drone 6 to (21.00,322.00) loading at Warehouse_1
+1:19:8 Drone 6 moving to Warehouse_1
+1:19:8 Drone 6 a initiating movement towards destination
+1:19:8 Drone 6 moved sucessfully to destination
+1:19:8 Drone 6 located at (960.00 , 590.00)
+1:19:10 Product PB stock reached maximum limit in Warehouse 3705
+1:19:20 Product PA stock updated in 20 units, in Warehouse 3704
+1:19:20 Drone 3 a initiating movement towards destination
+1:19:20 Drone 3 moved sucessfully to destination
+1:19:20 Drone 3 located at (213.00 , 1080.00)
+1:19:20 Drone 3 reached destination and delivered order 2
+1:19:20 Drone 3 a initiating movement towards destination
+1:19:22 Product PD stock updated in 20 units, in Warehouse 3704
+1:19:22 Drone 6 a initiating movement towards destination
+1:19:22 Drone 6 moved sucessfully to destination
+1:19:22 Drone 6 located at (21.00 , 322.00)
+1:19:22 Drone 6 reached destination and delivered order 3
+1:19:22 Drone 6 a initiating movement towards destination
+1:19:30 Product PB stock reached maximum limit in Warehouse 3705
+1:19:40 Product PC stock updated in 20 units, in Warehouse 3704
+1:19:42 Drone 3 moved sucessfully to destination
+1:19:42 Drone 3 located at (0.00 , 1080.00)
+1:19:42 Drone 3 moving to closest base
+1:19:50 Product PB stock reached maximum limit in Warehouse 3705
+1:19:55 Drone 6 moved sucessfully to destination
+1:19:55 Drone 6 located at (0.00 , 0.00)
+1:19:55 Drone 6 moving to closest base
+1:20:0 Product PA stock updated in 20 units, in Warehouse 3704
+1:20:10 Product PB stock reached maximum limit in Warehouse 3705
+1:20:20 Product PC stock updated in 2 units, in Warehouse 3704
+1:20:30 Product PB stock reached maximum limit in Warehouse 3705
+1:20:40 Product PC stock reached maximum limit in Warehouse 3704
+1:20:50 Product PB stock reached maximum limit in Warehouse 3705
+1:21:0 Product PD stock updated in 17 units, in Warehouse 3704
+1:21:10 Product PB stock reached maximum limit in Warehouse 3705
+1:21:20 Product PC stock reached maximum limit in Warehouse 3704
+1:21:30 Product PB stock reached maximum limit in Warehouse 3705
+1:21:40 Product PA stock updated in 20 units, in Warehouse 3704
+1:21:50 Product PB stock reached maximum limit in Warehouse 3705
+1:22:0 Product PC stock reached maximum limit in Warehouse 3704
+1:22:7 Warehouse process 0 with PID 3704 terminated
+1:22:7 Warehouse process 0 with PID 3704 terminated
+1:22:7 Warehouse process 0 with PID 3704 terminated
+1:22:7 Warehouse process 1 with PID 3705 terminated
+1:22:7 Warehouse process 1 with PID 3705 terminated
+1:22:7 Warehouse process 1 with PID 3705 terminated
+1:22:7 Warehouse process 0 with PID 0 terminated
+1:22:7 Warehouse process 1 with PID 0 terminated
