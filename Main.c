@@ -29,6 +29,7 @@ char logInfo[256];
 
 pthread_t *drone_idp;
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cv = PTHREAD_COND_INITIALIZER;
 
 //realiza a terminação controlada do programa, ao receber o sinal SIGINT
 void terminate(int sign)
@@ -38,6 +39,10 @@ void terminate(int sign)
 
 	printf("\nCleaning up memory.\nEnding program.\n");
 	signal(SIGINT,terminate);
+	for(i = 0; i < DRONES; i++){
+		drones[i].state = 0;
+	}
+	pthread_cond_broadcast(&cv);
 
 	for(i = 0; i < WAREHOUSES; i++)
 	{
@@ -75,6 +80,7 @@ void terminate(int sign)
 	unlink(FIFO);
 	sem_close(sem);
 	pthread_mutex_destroy(&mutex);
+	pthread_cond_destroy(&cv);
 	pthread_exit(0);
 	exit(0);
 }
@@ -623,6 +629,7 @@ void *do_some_work(void *id)
 
 	while(shutdown != 1)
 	{
+		pthread_cond_wait(&cv,&mutex);
 		//se o drone receber um pedido e mudar o seu estado para ocupado
 		if(drone->state != 0)
 		{
@@ -694,7 +701,7 @@ void create_drones()
 	int err;
 	time_t t;
 	srand((unsigned)time(&t));
-	pthread_mutex_lock(&mutex);
+	// pthread_mutex_lock(&mutex);
 
 	while(i != DRONES)
 	{
@@ -951,7 +958,7 @@ void select_poles()
 		send_drone->destiny_y = list_orders->next->order->y;
 		send_drone->state = 1;
 		send_drone->quantity = list_orders->next->order->quantity;
-
+		pthread_cond_broadcast(&cv);
 		//retira a encomenda da lista de encomendas a realizar
 		pop_node(list_orders->next,list_orders);
 
