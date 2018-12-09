@@ -3,7 +3,7 @@
 *		META 2 - SISTEMAS OPERATIVOS , 2018-2019
 *
 *		AUTORES: André Leite e Sara Inácio
-*		DATA: 06/11/2018
+*		DATA: 09/12/2018
 *		LANGUAGE: C
 *		COMPILE AS: no compile
 *		FILE: header.c
@@ -36,7 +36,7 @@
 #define key2 2341
 #define message_key 2000
 #define FIFO "NAMED_PIPE"
-#define MAX_STOCK 100
+#define MAX_STOCK 250
 
 typedef struct product *lista_prods;
 
@@ -120,6 +120,7 @@ int shmid_stat;
 int shmid_ware;
 char *pip;
 pid_t central;
+sigset_t block_ctrlc;
 
 void insert_log(char *text);
 void terminate(int sign);

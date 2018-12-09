@@ -1,3 +1,15 @@
+/************************************************************************************
+*
+*		META 2 - SISTEMAS OPERATIVOS , 2018-2019
+*
+*		AUTORES: André Leite e Sara Inácio
+*		DATA: 09/12/2018
+*		LANGUAGE: C
+*		COMPILE AS: gcc -Wall order_manager.c -lm -o order_manager
+*   FILE: order_manager.c
+*
+*************************************************************************************/
+
 #include "header.h"
 #include "drone_movement.h"
 #include "semlib.h"

@@ -3,7 +3,7 @@
 *		META 2 - SISTEMAS OPERATIVOS , 2018-2019
 *
 *		AUTORES: André Leite e Sara Inácio
-*		DATA: 04/12/2018
+*		DATA: 09/12/2018
 *		LANGUAGE: C
 *		COMPILE AS: gcc -Wall -pthread drone_movement.c semlib.c queue.c Main.c -lm -o Main
 *
@@ -37,6 +37,7 @@ void terminate(int sign)
 	shutdown = 1;
 
 	printf("\nCleaning up memory.\nEnding program.\n");
+	signal(SIGINT,terminate);
 
 	for(i = 0; i < WAREHOUSES; i++)
 	{
@@ -70,9 +71,9 @@ void terminate(int sign)
 	printf("\nMemory has been cleaned.\n");
 	printf("\nClosing sempahore.\n");
 
-	sem_close(sem);
 	close(fifo_id);
 	unlink(FIFO);
+	sem_close(sem);
 	pthread_mutex_destroy(&mutex);
 	pthread_exit(0);
 	exit(0);
@@ -86,7 +87,7 @@ void insert_log(char *text)
 	struct tm tm = *localtime(&t);
 	char *find = strchr(text, '-');
 
-	signal(SIGINT,SIG_IGN);
+	sigprocmask (SIG_BLOCK, &block_ctrlc, NULL);
 	sem_wait(sem, 0);
 
 	//se o ficheiro não existir, cria um novo
@@ -105,7 +106,7 @@ void insert_log(char *text)
 	fclose(f);
 
 	sem_post(sem, 0);
-	signal(SIGINT,terminate);
+	sigprocmask (SIG_UNBLOCK, &block_ctrlc, NULL);
 }
 
 //inicializa a memória partilhada
@@ -466,7 +467,7 @@ void show_stats(int signum)
 	printf("Produtos enviados: %d\n",mem->shipped_prods);
 	printf("Produtos Carregados: %d\n",mem->loaded_prods);
 	printf("Produtos entregues: %d\n",mem->delivered_prods);
-	printf("Total pedidos: %d\n",mem->derivered_requests);
+	printf("Total pedidos realizados: %d\n",mem->derivered_requests);
 	printf("Total restocks: %d\n\n",mem->restocks);
 	signal(SIGUSR1,show_stats);
 }
@@ -622,11 +623,12 @@ void *do_some_work(void *id)
 
 	while(shutdown != 1)
 	{
-		//se o drone não estiver ocupado
+		//se o drone receber um pedido e mudar o seu estado para ocupado
 		if(drone->state != 0)
 		{
 			pthread_mutex_unlock(&mutex);
 			pthread_mutex_lock(&mutex);
+			sigprocmask (SIG_BLOCK, &block_ctrlc, NULL);
 
 			//atualiza ficheiro de log
 			sprintf(logInfo, "Drone %d moving to %s", drone->idpr, drone->warehouse_s->name);
@@ -671,6 +673,7 @@ void *do_some_work(void *id)
 			printf("Back to base %d\n",drone->base_no );
 			closest_base(drone);
 			drone_travel(drone,bases[drone->base_no][0],bases[drone->base_no][1],1);
+			sigprocmask (SIG_UNBLOCK, &block_ctrlc, NULL);
 
 			//atualiza ficheiro de log
 			sprintf(logInfo, "Drone %d moving to closest base", drone->idpr);
@@ -678,8 +681,8 @@ void *do_some_work(void *id)
 		}
 	}
 
-	pthread_exit(0);
-	exit(0);
+	pthread_exit(NULL);
+
 }
 
 //cria threads drones
@@ -1067,7 +1070,7 @@ void read_request()
 	char send_order[1024];
 	printf("Listenning to pipe\n");
 
-	while (1)
+	while (shutdown != 1)
 	{
     read(fifo_id, &order, 1024*sizeof(char));
 		strcpy(send_order,order);
@@ -1080,6 +1083,8 @@ void read_request()
 //processo gestor da simulação
 int main()
 {
+
+	int i;
 	//inicializa a queue
 	list_orders = init_q();
 
@@ -1091,7 +1096,8 @@ int main()
 
 	//fica á espera do sinal SIGINT
 	signal(SIGINT,terminate);
-
+	sigemptyset (&block_ctrlc);
+	sigaddset (&block_ctrlc, SIGINT);
 	printf("\n[%d] SIMULATION PROCESS\n",getpid());
 
 	create_warehouses();
@@ -1105,6 +1111,9 @@ int main()
 		init_pipe();
 		create_drones();
 		read_request();
+		for(i = 0; i<DRONES;i++)
+			pthread_join(drones[i].id,NULL);
+		exit(0);
 	}
 	else
 	{

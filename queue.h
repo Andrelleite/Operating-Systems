@@ -3,7 +3,7 @@
 *		META 2 - SISTEMAS OPERATIVOS , 2018-2019
 *
 *		AUTORES: André Leite e Sara Inácio
-*		DATA: 06/11/2018
+*		DATA: 09/12/2018
 *		LANGUAGE: C
 *		COMPILE AS: no compile
 *		FILE: queue.h

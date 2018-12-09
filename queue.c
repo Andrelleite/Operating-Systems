@@ -1,3 +1,16 @@
+/************************************************************************************
+*
+*		META 2 - SISTEMAS OPERATIVOS , 2018-2019
+*
+*		AUTORES: André Leite e Sara Inácio
+*		DATA: 09/12/2018
+*		LANGUAGE: C
+*		COMPILE AS: no compile
+*   FILE: queue.c
+*
+*************************************************************************************/
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -51,6 +64,7 @@ void insert_q(Order *new_node,q_node lista )
     }
 }
 
+
 //imprime elemento da queue
 void print_q(q_node lista)
 {
@@ -86,13 +100,13 @@ void pop_node(q_node node, q_node lista)
                 found = 1;
                 act->next = post->next;
                 node->next = NULL;
-                print_q(lista);
             }
 
             act = post;
             post = post->next;
         }
     }
+    lista->n--;
 }
 
 //procura e devolve um elemento da queue
@@ -123,4 +137,5 @@ void delay_order(int id, q_node lista)
     pop_node(node,lista);
     insert_q(node->order,lista);
     free(node);
+    print_q(lista);
 }
